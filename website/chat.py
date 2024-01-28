@@ -112,21 +112,7 @@ def home():
         
         #Experimental JSON parser -- very xd --
 
-        '''json_prompt = conversation.predict(input=
-        "Explain these items in detail--- initial_airport: The three letter geocode of the airport that is closest to my location.\
-            ; final_airport: The three letter geocode of the airport that is closest to the location I am traveling to.\
-            ; leave_date: The date in which the travelers will leave in the format mm-dd.\
-            ; arrive_date: The date in which the travelers will arrive in the format mm-dd.\
-            ; seat_quality: The seat quality as one of the 4 choices: Economy, Premium Economy, Business, First\
-            ; activities: A singular string consisting of 2 or 3 activities that you will suggest for me based on my initial activity interests.\
-            ; restaurants: A singular string consisting of 2 or 3 restaurants you will suggest for me based on my initial food interests"                           
-        )
-
-        openai.api_key = apikey
-        
-        response = openai.completions.create(
-        model="gpt-4-0125-preview",
-        prompt="Using this information about another conversation: " + json_prompt + " \n\n" + 
+        output = conversation.predict(input=
         "Write the JSON format in a single line string with no newline characters or tab characters. The keys should be each variable of the object, here is the formatting" + 
         """{
         "initial_airport" : "The three letter geocode of the airport that is closest to my location.",
@@ -136,13 +122,12 @@ def home():
         "seat_quality" : "The seat quality as one of the 4 choices: Economy, Premium Economy, Business, First",
         "activities" : "A singular string consisting of 2 or 3 activities that you will suggest for me based on my initial activity interests.",
         "restaurants" : "A singular string consisting of 2 or 3 restaurants you will suggest for me based on my initial food interests"
-        }""", 
-        response_format={"type": "json_object"}
+        }"""                           
         )
 
+        output = (output[output.find("{"):output.rfind("}") + 1]) # Slicer
+        output = json.loads(output)
         
-
-        output = response.json()'''
         #------------
 
         # Below is the JSON parser --- TEMPORARILY DISABLED ---
