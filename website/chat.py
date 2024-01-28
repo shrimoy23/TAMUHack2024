@@ -12,7 +12,7 @@ from .json_schema import parser_schema
 
 from .apikey import apikey 
 
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory

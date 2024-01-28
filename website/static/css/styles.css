@@ -51,7 +51,7 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     transition: all 0.2s ease;
-    background: linear-gradient(120deg, #00ffa2, #0099cc);
+    background: linear-gradient(120deg, #ef3818, #0fb5f6);
     -webkit-background-clip: text;
     color: transparent !important;
 }
@@ -67,7 +67,7 @@ html {
 }
 
 .navbar-brand:hover {
-    text-shadow: 0 0 5px rgba(0, 255, 162, 0.25), 0 0 5px rgba(0, 255, 162, 0.25);
+    text-shadow: 0 0 5px rgba(100, 165, 221, 0.25), 0 0 5px rgba(243, 245, 244, 0.25);
 }
 
 .navbar-nav .nav-link:hover {
@@ -83,7 +83,7 @@ html {
 
 .navbar .btn:not(.navbar-brand) {
     text-decoration: none;
-    color: #00ffa2;
+    color: #00b7ff;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.03);
     padding: 8px 13px;
@@ -102,7 +102,7 @@ html {
 
 .btn-global-outline {
     text-decoration: none;
-    color: #00ffa2;
+    color: #51c0fc;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.03);
     padding: 8px 13px;
@@ -250,11 +250,11 @@ html {
 }
 
 .btn-icon:hover {
-    color: #00ffa2;
+    color: #00c3ff;
 }
 
 .close:hover {
-    color: #00ffa2;
+    color: #00a2ff;
     cursor: pointer;
 }
 
@@ -432,7 +432,7 @@ html {
 
 .home-card a {
     text-decoration: none;
-    color: #00ffa2;
+    color: #07b6f0;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.03);
     padding: 5px 10px;
@@ -488,7 +488,7 @@ label {
 
 .about-card h2:hover,
 .about-card h3:hover {
-    background: linear-gradient(120deg, #00ffa2, #0099cc);
+    background: linear-gradient(120deg, #05d7ea, #0099cc);
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -522,7 +522,7 @@ label {
 }
 
 .tech-card ul li span:hover {
-    color: #00ffa2;
+    color: #0dd1dc;
 }
 
 .team-card ul {
@@ -536,7 +536,7 @@ label {
 }
 
 .team-card ul li:hover {
-    color: #00ffa2;
+    color: #06c1ff;
 }
 
 /* My_Plan */
@@ -663,7 +663,7 @@ hr {
     background: rgba(255, 255, 255, 0.03);
     padding: 8px 13px;
     border-radius: 15px;
-    color: #00ffa2;
+    color: #0091ff;
     text-decoration: none;
     font-weight: bold;
     margin-left: auto;
