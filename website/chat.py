@@ -7,9 +7,11 @@ import os
 
 from datetime import datetime
 
+from .json_schema import parser_schema
+
 from .apikey import apikey 
 
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
@@ -24,9 +26,9 @@ from .hotels import HotelScraper
 chat = Blueprint('chat', __name__)
 plan = Blueprint('planner', __name__)
 
-OpenAI.organization = 'org-ywvhjiv7huUG8YdmBYGE5uxY'
+ChatOpenAI.organization = 'org-ywvhjiv7huUG8YdmBYGE5uxY'
 os.environ['OPENAI_API_KEY'] = apikey
-llm = OpenAI(temperature=1)
+llm = ChatOpenAI(model='gpt-4', temperature=1)
 
 #Date recognition
 cdt = datetime.today()
