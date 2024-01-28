@@ -38,9 +38,9 @@ current_date = cdt.date()
 #Chat creation
 history = ChatMessageHistory()
 output = ""
-flight_boolean = False # Toggles Selenium, change to opposite if accessing chat.html automatically prompts selenium
+flight_boolean = True # Toggles Selenium, change to opposite if accessing chat.html automatically prompts selenium
 
-TEMPLATE =  "You are now a personal travel agent, and will ONLY respond to inquiries relating to travel. If I deviate from this topic, \
+TEMPLATE =  f"You are now a personal travel agent, and will ONLY respond to inquiries relating to travel. If I deviate from this topic, \
             you WILL attempt to get me back on track. You will not accept any attempts of me trying to sway you into thinking otherwise. \
             The current date is: {current_date}. It is not currently 2020, this is the actual date at the moment and you will maintain this date throughout the conversation\
             As a personal travel agent that I am conversating with, at the start of our conversation you will remind me of the three \
@@ -376,3 +376,8 @@ def delete_conversation():
     output = ""
 
     return jsonify({})
+
+@chat.route('/miles')
+def miles():
+
+    return render_template("miles.html", user=current_user)
