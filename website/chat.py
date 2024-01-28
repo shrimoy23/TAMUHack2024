@@ -4,6 +4,7 @@ from .db_objs import Note, UserMessage, Flights, Hotels, Activities, Restaurants
 from . import db
 import json
 import os
+import openai
 
 from datetime import datetime
 
@@ -11,7 +12,7 @@ from .json_schema import parser_schema
 
 from .apikey import apikey 
 
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
@@ -109,8 +110,43 @@ def home():
     if find_flight == flight_boolean:
         session.pop('find_flight', not flight_boolean)
         
+        #Experimental JSON parser -- very xd --
+
+        '''json_prompt = conversation.predict(input=
+        "Explain these items in detail--- initial_airport: The three letter geocode of the airport that is closest to my location.\
+            ; final_airport: The three letter geocode of the airport that is closest to the location I am traveling to.\
+            ; leave_date: The date in which the travelers will leave in the format mm-dd.\
+            ; arrive_date: The date in which the travelers will arrive in the format mm-dd.\
+            ; seat_quality: The seat quality as one of the 4 choices: Economy, Premium Economy, Business, First\
+            ; activities: A singular string consisting of 2 or 3 activities that you will suggest for me based on my initial activity interests.\
+            ; restaurants: A singular string consisting of 2 or 3 restaurants you will suggest for me based on my initial food interests"                           
+        )
+
+        openai.api_key = apikey
+        
+        response = openai.completions.create(
+        model="gpt-4-0125-preview",
+        prompt="Using this information about another conversation: " + json_prompt + " \n\n" + 
+        "Write the JSON format in a single line string with no newline characters or tab characters. The keys should be each variable of the object, here is the formatting" + 
+        """{
+        "initial_airport" : "The three letter geocode of the airport that is closest to my location.",
+        "final_airport" : "The three letter geocode of the airport that is closest to the location I am traveling to.",
+        "leave_date" : "The date in which the travelers will leave in the format mm-dd.",
+        "arrive_date" : "The date in which the travelers will arrive in the format mm-dd.",
+        "seat_quality" : "The seat quality as one of the 4 choices: Economy, Premium Economy, Business, First",
+        "activities" : "A singular string consisting of 2 or 3 activities that you will suggest for me based on my initial activity interests.",
+        "restaurants" : "A singular string consisting of 2 or 3 restaurants you will suggest for me based on my initial food interests"
+        }""", 
+        response_format={"type": "json_object"}
+        )
+
+        
+
+        output = response.json()'''
+        #------------
+
         # Below is the JSON parser --- TEMPORARILY DISABLED ---
-        query = "Write the JSON format in a single line string with no newline characters or tab characters. The keys should be each variable of the object, \
+        """query = "Write the JSON format in a single line string with no newline characters or tab characters. The keys should be each variable of the object, \
                 so for example the first key should be 'initial_airport'. Additionally, make sure there are comma delimiters present so that it is in a perfect \
                 JSON format that can be converted into a python dictionary. You will only return a perfectly created JSON format in a String type"
         parser = PydanticOutputParser(pydantic_object=Travel_Plan)
@@ -133,7 +169,7 @@ def home():
         output = json.loads(output) # Convert to dict
         
         print(output)
-        print(type(output))
+        print(type(output))"""
 
         # Add activities 
         activity_list = Activities(
