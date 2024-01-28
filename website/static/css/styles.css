@@ -1,0 +1,754 @@
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(190deg, #393648, #0b172a);
+    position: relative;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    padding: 10px 30px;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar:before,
+.navbar:after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 1;
+    background: linear-gradient(white, transparent, white);
+    pointer-events: none;
+    transform: rotate(-15deg);
+    opacity: 0.02;
+}
+
+.navbar:after {
+    transform: rotate(15deg);
+    opacity: 0.01;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4em;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.2s ease;
+    background: linear-gradient(120deg, #00ffa2, #0099cc);
+    -webkit-background-clip: text;
+    color: transparent !important;
+}
+
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.navbar-brand:hover {
+    text-shadow: 0 0 5px rgba(0, 255, 162, 0.25), 0 0 5px rgba(0, 255, 162, 0.25);
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar .btn:not(.navbar-brand) {
+    text-decoration: none;
+    color: #00ffa2;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 13px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.navbar .btn:not(.navbar-brand):hover {
+    text-decoration: none;
+    background-color: rgba(0, 255, 162, 0.1);
+    transition: all 0.2s ease;
+}
+
+.btn-global-outline {
+    text-decoration: none;
+    color: #00ffa2;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 13px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.btn-global-outline:hover {
+    text-decoration: none;
+    background-color: rgba(0, 255, 162, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Chat */
+.chat-page body,
+.chat-page html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.chat-container {
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 1px 0px 20px black;
+    max-width: 1000px;
+    margin: 0px auto 0 auto;
+    min-height: calc(100vh - 200px);
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+#chatbox {
+    height: calc(100vh - 235px);
+    overflow-y: auto;
+    flex-grow: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-entry-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.chat-logo {
+    line-height: 1.5;
+    font-size: 24px;
+    margin-right: 2%;
+    padding: 15px;
+    align-self: center;
+}
+
+.chat-entry {
+    margin: 5px 0;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    padding-left: 0%;
+    padding-right: 5%;
+}
+
+.user-message {
+    background-color: transparent;
+    text-align: right;
+    padding: 15px;
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 7%;
+}
+
+.moon-logo {
+    line-height: 1.5;
+    font-size: 24px;
+    margin-right: 2%;
+    align-self: center;
+}
+
+#userInput {
+    background-color: rgba(57, 72, 103, 0.1);
+    padding: 15px;
+    width: 1000px;
+    border-top: 2px solid rgba(33, 42, 62, 0.2);
+    display: flex;
+    align-items: center;
+    height: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+}
+
+#userInput textarea {
+    background-color: rgba(51, 51, 51, 0.3);
+    border-radius: 5px;
+    color: #fff;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#userMessage {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    width: calc(100% - 100px);
+    padding: 10px;
+    resize: none;
+    position: relative;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+}
+
+.button-container>.btn-middle-container {
+    width: 30%;
+    text-align: center;
+}
+
+.btn-send {
+    margin-left: auto;
+}
+
+.btn-icon {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 7.5px;
+}
+
+#chatbox::-webkit-scrollbar {
+    width: 0px;
+}
+
+.btn-icon:hover {
+    color: #00ffa2;
+}
+
+.close:hover {
+    color: #00ffa2;
+    cursor: pointer;
+}
+
+
+.clickable-box {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #00ffa2;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: none;
+    position: absolute;
+    right: 140px;
+    bottom: 60px;
+    z-index: 1000;
+}
+
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-icon:active {
+    animation: buttonPress 0.2s ease-in-out;
+}
+
+.glassmorphism {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    align-items: center;
+    padding-bottom: 20px;
+    user-select: none;
+}
+
+.modal-header {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    text-align: center;
+}
+
+.modal {
+    top: 25%;
+}
+
+.find-flights-modal .modal-content {
+    height: 250px;
+    width: 25vw;
+    position: fixed;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Home */
+.home-title-container {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    padding: 20px 30px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: white;
+}
+
+.home-title {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 3rem;
+}
+
+.home-subheader {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.home-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.home-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 20px 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 18rem;
+    color: white;
+    margin: 20px;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.home-card a {
+    text-decoration: none;
+    color: #00ffa2;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-card a:hover {
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: rgba(0, 255, 162, 0.1);
+}
+
+label {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* About */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.about-card {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 15px;
+    padding: 40px 50px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 80%;
+    height: auto;
+    margin: 20px 0;
+    position: relative;
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.about-card h2,
+.about-card h3 {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.about-card h2:hover,
+.about-card h3:hover {
+    background: linear-gradient(120deg, #00ffa2, #0099cc);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.tech-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tech-card ul li {
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    flex-wrap: nowrap;
+}
+
+.tech-card ul li h4 {
+    margin-right: 5px;
+}
+
+.tech-card ul li span {
+    margin: 0 5px;
+    margin-right: 0px;
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+.tech-card ul li span:hover {
+    color: #00ffa2;
+}
+
+.team-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.team-card ul li {
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.team-card ul li:hover {
+    color: #00ffa2;
+}
+
+/* My_Plan */
+.boarding-pass {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin: 20px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 85%;
+    max-width: 900px;
+
+}
+
+.flight-header {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.flight-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.flight-meta {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.flight-info,
+.flight-meta {
+    width: 40%;
+    padding-right: 10px;
+}
+
+.flight-url {
+    position: fixed;
+    top: 20px;
+    right: 15px;
+}
+
+.flight-url a {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 13px;
+    border-radius: 15px;
+    color: #00ffa2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.flight-url:hover a {
+    text-decoration: none;
+    background-color: rgba(0, 255, 162, 0.1);
+    transition: all 0.2s ease;
+}
+
+.details-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin: 20px 50px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hotel-section,
+.activity-section,
+.restaurant-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.hotel-name,
+.hotel-location,
+.hotel-rating {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.hotel-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.hotel-url {
+    position: relative;
+    margin-top: -30px;
+}
+
+.hotel-url a {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 13px;
+    border-radius: 15px;
+    color: #00ffa2;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.hotel-url:hover a {
+    text-decoration: none;
+    background-color: rgba(0, 255, 162, 0.1);
+    transition: all 0.2s ease;
+}
+
+.empty-plan-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 20px 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.empty-plan-card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.empty-plan-card p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.chat-button {
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #00ffa2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.chat-button:hover {
+    text-decoration: none;
+    background-color: rgba(0, 255, 162, 0.1);
+}
+
+/* Logon */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 25px
+}
+
+.glass-card h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+h3.text-center {
+    margin-bottom: 25px;
+}
+
+.glass-card label {
+    color: #ffffff;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 15px;
+    backdrop-filter: blur(10px);
+}
+
+.form-control:focus {
+    outline: none;
+    color: #bdbdbd;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.08);
+}

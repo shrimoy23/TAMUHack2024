@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="home-title-container">
+    <h1 class="home-title">AlgoNavigator</h1>
+    <p class="home-subheader">Navigating you using our secret algorithm with the ultimate sauce.</p>
+</div>
+<div class="home-card-container">
+    <div class="home-card">
+        <h3>Chat</h3>
+        <p>Interact with our chat system</p>
+        <a href="/chat">Go to Chat</a>
+    </div>
+    <div class="home-card">
+        <h3>My Plan</h3>
+        <p>View your trip here</p>
+        <a href="/my-plan">Go to My Plan</a>
+    </div>
+    <div class="home-card">
+        <h3>About</h3>
+        <p>Learn more about us and our project</p>
+        <a href="/about">Learn More</a>
+    </div>
+</div>
+{% endblock %}
