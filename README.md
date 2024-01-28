@@ -1,4 +1,4 @@
-# NOTES - WEEK 1
+# PROJECT FEATURES
  
 ### Travel Agent:
 Stores and returns traveling options for a user through instructions given in natural English language and stores the results in a database.
@@ -20,7 +20,6 @@ Creates an itinerary for a user’s travel plan with the given input in natural 
 - Prompt Engineering/LLM → Langchain)
 - Cloud Database Integration → Firebase/AWS
 - Account Login Integration → Google Auth
-#### Difficulties with propmt engineering and utilizing Langchain may arise - but effectively uses AI and is unparalleled in relation to other agents. 
 
 ---
 ### Features:
